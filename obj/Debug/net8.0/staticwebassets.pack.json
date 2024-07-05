@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/tanya_plesen/blazorwetud/obj/Debug/net8.0/scopedcss/projectbundle/blazorwetud.bundle.scp.css",
+      "PackagePath": "staticwebassets/blazorwetud.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/tanya_plesen/blazorwetud/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/tanya_plesen/blazorwetud/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/tanya_plesen/blazorwetud/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/tanya_plesen/blazorwetud/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.blazorwetud.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.blazorwetud.props",
+      "PackagePath": "build\\blazorwetud.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.blazorwetud.props",
+      "PackagePath": "buildMultiTargeting\\blazorwetud.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.blazorwetud.props",
+      "PackagePath": "buildTransitive\\blazorwetud.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

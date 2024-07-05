@@ -1,0 +1,52 @@
+@page "/users"
+@rendermode InteractiveServer
+@inject ApplicationDbContext DbContext
+@using Microsoft.EntityFrameworkCore
+@using global::blazorwetud.Components
+
+<h3>Users</h3>
+
+<button @onclick="LoadUsers">Load Users</button>
+<button @onclick="AddUser">Add User</button>
+
+<ul>
+    @foreach (var user in users)
+    {
+        <li>@user.Username - @user.Email</li>
+    }
+</ul>
+
+@code {
+    private List<User> users = new List<User>();
+
+    private async Task LoadUsers()
+    {
+        users = await GetAllUsers(DbContext);
+    }
+
+    private async Task AddUser()
+    {
+        await CreateUser(DbContext);
+        await LoadUsers();
+    }
+
+    private async Task<List<User>> GetAllUsers(ApplicationDbContext context)
+    {
+        return await context.Users.ToListAsync();
+    }
+
+    private async Task CreateUser(ApplicationDbContext context)
+    {
+        var user = new User
+        {
+            Username = "1",
+            PasswordHash = "1",
+            Email = "1",
+            CompletedTasks = new List<global::Task>(),
+            CompletedQuizTasks = new List<QuizTask>()
+        };
+
+        context.Users.Add(user);
+        await context.SaveChangesAsync();
+    }
+}

@@ -1,0 +1,86 @@
+﻿@inherits LayoutComponentBase
+
+<div class="topbar">
+    <div class="container">
+        <a class="logo" href="/">Wetud</a>
+        <nav class="navigation">
+            <a class="nav-link" href="/materials">Материалы</a>
+            <a class="nav-link" href="/articles">Статьи</a>
+            <a class="nav-link" href="/memorizer">Memorizer</a>
+            <a class="nav-link login-link" href="/login">Войти</a>
+        </nav>
+    </div>
+</div>
+
+<main>
+    @Body
+</main>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .topbar {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .navigation {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-link {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        transition: color 0.3s;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-link:hover::after {
+        opacity: 1;
+    }
+
+    .login-link {
+        border: 1px solid #333;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+</style>

@@ -1,0 +1,148 @@
+@page "/register"
+@using Microsoft.EntityFrameworkCore
+@using global::blazorwetud.Components
+@rendermode InteractiveServer
+@inject ApplicationDbContext DbContext
+
+<div class="login-container">
+    <div class="login-tile">
+        <h2>Регистрация</h2>
+        <div class="form-group">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" @bind-value="username" @bind-value:event="onchange" @bind-value:after="CheckDisabled" class="form-control" />
+            <p class="text-danger">@nicknameError</p>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" @bind-value="password" @bind-value:event="onchange" @bind-value:after="CheckDisabled" class="form-control" />
+            <p class="text-danger">@passwordError1</p>
+        </div>
+        <div class="form-group">
+            <label for="passwordConfirmation">Подтвердите пароль</label>
+            <input type="password" id="passwordConfirmation" @bind-value="passwordConfirmation" @bind-value:event="onchange" @bind-value:after="CheckDisabled" class="form-control" />
+            <p class="text-danger">@passwordError2</p>
+        </div>
+        <button @onclick="RegisterUser" class="btn btn-primary" disabled="@isDisabled">Зарегистрироваться</button>
+    </div>
+</div>
+
+<style>
+    .text-danger {
+        color: red;
+        font-size: 0.875em;
+        margin-top: 0.25em;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .text-danger::after {
+        content: attr(data-error);
+        visibility: hidden;
+        width: 200px;
+        background-color: #f44336;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -100px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .text-danger:hover::after {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+@code {
+    private string username = string.Empty;
+    private string password = string.Empty;
+    private string passwordConfirmation = string.Empty;
+    private bool isDisabled = true;
+    private string passwordError1 = string.Empty;
+    private string passwordError2 = string.Empty;
+    private string nicknameError = string.Empty;
+
+    private void CheckDisabled()
+    {
+        // Username validation
+        if (username.Length < 5)
+        {
+            nicknameError = "Слишком короткое имя! Имя пользователя должно содержать минимум 5 символов.";
+        }
+        else if (!System.Text.RegularExpressions.Regex.IsMatch(username, "^[a-zA-Z0-9]*$"))
+        {
+            nicknameError = "Имя пользователя может содержать только буквы и цифры!";
+        }
+        else
+        {
+            nicknameError = string.Empty;
+        }
+
+        // Password validation
+        if (password.Length < 8)
+        {
+            passwordError1 = "Слишком короткий пароль! Пароль должен содержать минимум 8 символов.";
+        }
+        else if (!System.Text.RegularExpressions.Regex.IsMatch(password, "^[a-zA-Z0-9]*$"))
+        {
+            passwordError1 = "Пароль может содержать только буквы и цифры!";
+        }
+        else
+        {
+            passwordError1 = string.Empty;
+        }
+
+        // Password confirmation validation
+        passwordError2 = password != passwordConfirmation ? "Пароли не совпадают!" : string.Empty;
+
+        isDisabled = string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(passwordConfirmation) || !string.IsNullOrEmpty(nicknameError) || !string.IsNullOrEmpty(passwordError1) || !string.IsNullOrEmpty(passwordError2);
+    }
+
+    private async Task<bool> TryRegisterUser()
+    {
+        // Check if the username is already taken
+        var existingUser = await DbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
+        if (existingUser != null)
+        {
+            nicknameError = "Имя пользователя уже занято!";
+            return false; // Username is already taken
+        }
+
+        // Create a new user with hashed password
+        var user = new User
+        {
+            Id = new Random().Next(1, int.MaxValue), // Generate a random ID
+            Username = username,
+            PasswordHash = PasswordHelper.HashPassword(password), // Hash the password
+            Email = string.Empty, // Leave email empty
+            CompletedTasks = new List<global::Task>(),
+            CompletedQuizTasks = new List<QuizTask>()
+        };
+
+        DbContext.Users.Add(user);
+        await DbContext.SaveChangesAsync();
+
+        return true; // Registration successful
+    }
+
+    private async Task RegisterUser()
+    {
+        bool success = await TryRegisterUser();
+        if (success)
+        {
+            // Handle successful registration (e.g., redirect to login page or show a success message)
+        }
+        else
+        {
+            // Handle registration failure (e.g., show an error message)
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@page "/memorizer"
+
+<div class="subjects-row">
+    @foreach (var subject in Subjects)
+    {
+        <div class="subject-tile" @onclick="() => SelectSubject(subject)">
+            <div class="subject-icon">@subject.Icon</div>
+        </div>
+    }
+</div>
+
+@if (SelectedSubject != null)
+{
+    <div class="material-content">
+        <h2>@SelectedSubject.Name</h2>
+        <!-- Здесь будет содержимое материала -->
+    </div>
+}
+
+@code {
+    private List<Subject> Subjects = new List<Subject>
+    {
+        new Subject { Name = "Математика (Базовая)", Icon = "📏" },
+        new Subject { Name = "Математика (Профильная)", Icon = "📐" },
+        new Subject { Name = "Русский язык", Icon = "📚" },
+        new Subject { Name = "Физика", Icon = "🔬" },
+        new Subject { Name = "Химия", Icon = "⚗️" },
+        new Subject { Name = "Биология", Icon = "🌱" },
+        new Subject { Name = "История", Icon = "📜" },
+        new Subject { Name = "Обществознание", Icon = "🏛️" },
+        new Subject { Name = "География", Icon = "🌍" },
+        new Subject { Name = "Информатика", Icon = "💻" },
+        new Subject { Name = "Английский язык", Icon = "🗣️" }
+    };
+
+    private Subject SelectedSubject { get; set; }
+
+    private void SelectSubject(Subject subject)
+    {
+        SelectedSubject = subject;
+    }
+
+    private class Subject
+    {
+        public string Name { get; set; }
+        public string Icon { get; set; }
+    }
+}

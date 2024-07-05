@@ -1,0 +1,36 @@
+@page "/materials"
+
+<div class="materials-container">
+    @foreach (var subject in Subjects)
+    {
+        <a class="material-tile" href="@subject.Url">
+            <div class="material-icon">@subject.Icon</div>
+            <div class="material-name">@subject.Name</div>
+        </a>
+    }
+</div>
+
+@code {
+    private List<Subject> Subjects = new List<Subject>
+    {
+        new Subject { Name = "Математика (Базовая)", Icon = "📏", Url = "/materials/math-basic" },
+        new Subject { Name = "Математика (Профильная)", Icon = "📐", Url = "/materials/math-profile" },
+        new Subject { Name = "Русский язык", Icon = "📚", Url = "/materials/russian" },
+        new Subject { Name = "Физика", Icon = "🔬", Url = "/materials/physics" },
+        new Subject { Name = "Химия", Icon = "⚗️", Url = "/materials/chemistry" },
+        new Subject { Name = "Биология", Icon = "🌱", Url = "/materials/biology" },
+        new Subject { Name = "История", Icon = "📜", Url = "/materials/history" },
+        new Subject { Name = "Обществознание", Icon = "🏛️", Url = "/materials/social-studies" },
+        new Subject { Name = "География", Icon = "🌍", Url = "/materials/geography" },
+        new Subject { Name = "Информатика", Icon = "💻", Url = "/materials/computer-science" },
+        new Subject { Name = "Английский язык", Icon = "🗣️", Url = "/materials/english" },
+        new Subject { Name = "Литература", Icon = "📖", Url = "/materials/literature" }
+    };
+
+    private class Subject
+    {
+        public string Name { get; set; }
+        public string Icon { get; set; }
+        public string Url { get; set; }
+    }
+}

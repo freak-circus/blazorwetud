@@ -1,0 +1,65 @@
+   @page "/login"
+   @using Microsoft.EntityFrameworkCore
+@using global::blazorwetud.Components
+   @inject ApplicationDbContext DbContext
+   @rendermode InteractiveServer
+
+   <div class="login-container">
+       <div class="login-tile">
+           <h2>Вход</h2>
+           <div class="form-group">
+               <label for="username">Имя пользователя</label>
+               <input type="text" id="username" @bind="username" @bind:event="oninput" @bind:after="CheckDisabled" class="form-control" />
+           </div>
+           <div class="form-group">
+               <label for="password">Пароль</label>
+               <input type="password" id="password" @bind="password" @bind:event="oninput" @bind:after="CheckDisabled" class="form-control" />
+           </div>
+           <button @onclick="TryLogin" class="btn btn-primary" disabled="@isDisabled">Войти</button>
+           <p class="text-danger">@loginError</p>
+           <p class="register-link">
+               <a href="/register">Регистрация</a>
+           </p>
+       </div>
+   </div>
+
+   <style>
+       .text-danger {
+           color: red;
+           font-size: 0.875em;
+           margin-top: 0.25em;
+       }
+   </style>
+
+   @code {
+       private string username = string.Empty;
+       private string password = string.Empty;
+       private string loginError = string.Empty;
+       private bool isDisabled = true;
+
+       private void CheckDisabled()
+       {
+           isDisabled = string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password);
+       }
+
+       private async Task TryLogin()
+       {
+           try
+           {
+               var user = await DbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
+               if (user == null || !PasswordHelper.VerifyPassword(password, user.PasswordHash))
+               {
+                   loginError = "Имя пользователя или пароль не верны.";
+                   return;
+               }
+
+               // Handle successful login (e.g., redirect to a dashboard or show a success message)
+               loginError = string.Empty; // Clear any previous error messages
+               // Redirect or show success message
+           }
+           catch (Exception ex)
+           {
+               loginError = "Произошла ошибка при попытке входа. Пожалуйста, попробуйте снова.";
+           }
+       }
+   }

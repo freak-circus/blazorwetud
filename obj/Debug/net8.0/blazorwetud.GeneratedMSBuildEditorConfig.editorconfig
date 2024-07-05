@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = blazorwetud
+build_property.RootNamespace = blazorwetud
+build_property.ProjectDir = /Users/tanya_plesen/Desktop/blazorwetud/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/tanya_plesen/Desktop/blazorwetud
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-shhyvdf9x7
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Articles.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BcnRpY2xlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-e1as2cj71t
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5g73oivqma
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Materials.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9NYXRlcmlhbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-l93d07a61n
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Memorizer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9NZW1vcml6ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-rv1suexzms
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/QuizCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9RdWl6Q2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-qtv9hxv42a
+
+[/Users/tanya_plesen/Desktop/blazorwetud/Components/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9SZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-prgay3xb0t
